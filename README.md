@@ -23,3 +23,13 @@ npx react-native init reactnative
 * [error] Failed to install the following Android SDK packages as some licences have not been accepted.
 SDK tools에 구글 라이센스 추가
 C:\Users\{User}\AppData\Local\Android\Sdk\licenses
+
+## 절대경로 설정
+npm install babel-plugin-module-resolver -D
+
+## Root Import
+npm install babel-plugin-root-import --save-dev
+
+
+## References
+절대경로 설정 https://csc0705.tistory.com/63
