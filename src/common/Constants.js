@@ -9,4 +9,8 @@ export const movies = [
     {title:"Inception", view:"12000"},
     {title:"Inception", view:"12000"},
     {title:"Inception", view:"12000"},
+    {title:"Inception", view:"12000"},
+    {title:"Inception", view:"12000"},
+    {title:"Inception", view:"12000"},
+    {title:"Inception", view:"12000"},
     ]
