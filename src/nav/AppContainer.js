@@ -12,8 +12,8 @@ const MainTab = createStackNavigator();
 function MainTabScreen(navigation) {
   return (
     <MainTab.Navigator>
-      <MainTab.Screen name="MainHome" component={MainHScreen} />
-      <MainTab.Screen name="MainDetail" component={MainDScreen} />
+      <MainTab.Screen name="MainH" component={MainHScreen} options={{title: 'Main'}} />
+      <MainTab.Screen name="MainD" component={MainDScreen} options={({ route }) => ({ title: route.name })} />
     </MainTab.Navigator>
   );
 } 
@@ -22,8 +22,8 @@ const LessonTab = createStackNavigator();
 function LessonTabScreen() {
   return (
     <LessonTab.Navigator>
-      <LessonTab.Screen name="LessonHome" component={MainHScreen} />
-      <LessonTab.Screen name="LessonDetail" component={MainDScreen} />
+      <LessonTab.Screen name="LessonH" component={LessonHScreen} options={{title: 'Lesson'}} />
+      <LessonTab.Screen name="LessonD" component={LessonDScreen} options={({ route }) => ({ title: route.name })} />
     </LessonTab.Navigator>
   );
 }

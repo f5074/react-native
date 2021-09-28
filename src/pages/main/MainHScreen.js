@@ -22,7 +22,7 @@ export default class LessonHScreen extends Component {
         <Text>{this.props.route.name}</Text>
         <Button
           title="Go Details"
-          onPress={() => this.props.navigation.navigate('MainDetail')}
+          onPress={() => this.props.navigation.navigate('MainD')}
         />
       </View>
     );

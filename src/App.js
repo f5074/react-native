@@ -1,5 +1,5 @@
 import React from 'react';
-import AppContainer from './src/nav/AppContainer';
+import AppContainer from './nav/AppContainer';
 
 const App = ({ mode }) => {
 

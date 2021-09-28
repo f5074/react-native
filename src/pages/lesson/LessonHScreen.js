@@ -14,7 +14,8 @@ export default class LessonHScreen extends Component {
   constructor(props) {
     super(props);
   }
-  componentDidMount() {}
+  componentDidMount() {
+  }
 
   render() {
     return (
@@ -22,7 +23,7 @@ export default class LessonHScreen extends Component {
         <Text>{this.props.route.name}</Text>
         <Button
           title="Go Details"
-          onPress={() => this.props.navigation.navigate('LessonDetail')}
+          onPress={() => this.props.navigation.navigate('LessonD')}
         />
       </View>
     );
