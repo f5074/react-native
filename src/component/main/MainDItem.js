@@ -16,7 +16,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-export default class Section extends Component {
+export default class MainDItem extends Component {
   constructor(props) {
     super(props);
     this.state = {

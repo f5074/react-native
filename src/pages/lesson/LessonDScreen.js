@@ -1,12 +1,10 @@
 import React, {Component} from 'react';
-import MainSectionItem from 'component/main/MainSectionItem';
+import MainDItem from 'component/main/MainDItem';
 import { movies } from 'common/Constants';
-// import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-
-
 import {
   SafeAreaView,
   ScrollView,
+
   StatusBar,
   StyleSheet,
   Text,
@@ -22,12 +20,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-// const aLoop = movies.map((unit, idx) => {
-//   console.log(unit);
-//   return unit;
-// });
-
-export default class MainHomeScreen extends Component {
+export default class LessonDScreen extends Component {
     render() {
         return (
             <SafeAreaView style={{backgroundColor: Colors.light}}>
@@ -35,7 +28,7 @@ export default class MainHomeScreen extends Component {
             <ScrollView contentInsetAdjustmentBehavior="automatic">
               <View style={{backgroundColor: Colors.white}}>
                 {movies?.map((item,idx) => (
-                  <MainSectionItem title={item.title} key={idx}>{item.view}</MainSectionItem>
+                  <MainDItem title={item.title} key={idx}>{item.view}</MainDItem>
                 ))}
               </View>
             </ScrollView>
@@ -43,22 +36,3 @@ export default class MainHomeScreen extends Component {
         )
     }
 }
-
-const styles = StyleSheet.create({
-    sectionContainer: {
-      marginTop: 32,
-      paddingHorizontal: 24,
-    },
-    sectionTitle: {
-      fontSize: 24,
-      fontWeight: '600',
-    },
-    sectionDescription: {
-      marginTop: 8,
-      fontSize: 18,
-      fontWeight: '400',
-    },
-    highlight: {
-      fontWeight: '700',
-    },
-  });
