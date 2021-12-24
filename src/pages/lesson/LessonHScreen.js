@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component} from 'react'
 import {
   SafeAreaView,
   ScrollView,
@@ -8,14 +8,13 @@ import {
   useColorScheme,
   View,
   Button,
-} from 'react-native';
+} from 'react-native'
 
 export default class LessonHScreen extends Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
-  componentDidMount() {
-  }
+  componentDidMount() {}
 
   render() {
     return (
@@ -26,6 +25,6 @@ export default class LessonHScreen extends Component {
           onPress={() => this.props.navigation.navigate('LessonD')}
         />
       </View>
-    );
+    )
   }
 }

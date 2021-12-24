@@ -4,6 +4,8 @@ yarn.lock
 /.idea
 Podfile.lock
 .env
+/asset
+/src/asset/
 
 # OSX
 #

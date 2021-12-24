@@ -50,6 +50,58 @@ npm install react-native-reanimated react-native-gesture-handler react-native-sc
 npm install @react-navigation/stack
 ```
 
+### 5. prettier 설정
+```json
+
+// before
+{
+    "workbench.startupEditor": "none",
+    "editor.renderControlCharacters": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+    "git.ignoreRebaseWarning": true,
+    "gitlens.codeLens.authors.enabled": false,
+    "gitlens.codeLens.recentChange.enabled": false,
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
+}
+
+
+
+// after
+{
+  "workbench.colorTheme": "Material Theme Darker",
+  "editor.formatOnSave": true,
+  "prettier.jsxSingleQuote": true,
+  "prettier.singleQuote": true,
+  "javascript.preferences.quoteStyle": "single",
+  "typescript.preferences.quoteStyle": "single",
+  "editor.tokenColorCustomizations": {
+    "comments": "#fdc1d5"
+  },
+  "launch": {
+    
+
+    "configurations": [],
+    "compounds": []
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "code-runner.runInTerminal": true,
+  "[json]": {
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "editor.suggest.insertMode": "replace",
+    "gitlens.codeLens.scopes": ["document"]
+  },
+  "code-runner.executorMap": {
+    "cpp": "cd $dir && clang++ -std=c++17 $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt"
+  }
+}
+```
+
 
 
 ## References

@@ -1,0 +1,17 @@
+export default {
+  menu_category_off: require('./asset/menu/menu_category_off.png'),
+  menu_category_on: require('./asset/menu/menu_category_on.png'),
+  menu_lesson_off: require('./asset/menu/menu_lesson_off.png'),
+  menu_lesson_on: require('./asset/menu/menu_lesson_on.png'),
+  menu_challenge_off: require('./asset/menu/menu_challenge_off.png'),
+  menu_challenge_on: require('./asset/menu/menu_challenge_on.png'),
+  menu_contents_off: require('./asset/menu/menu_contents_off.png'),
+  menu_contents_on: require('./asset/menu/menu_contents_on.png'),
+  menu_home_off: require('./asset/menu/menu_home_off.png'),
+  menu_home_on: require('./asset/menu/menu_home_on.png'),
+  menu_mypage_off: require('./asset/menu/menu_mypage_off.png'),
+  menu_mypage_on: require('./asset/menu/menu_mypage_on.png'),
+  menu_notice_off: require('./asset/menu/menu_notice_off.png'),
+  menu_notice_on: require('./asset/menu/menu_notice_on.png'),
+  header_back: require('./asset/common/header_back.png'),
+};
