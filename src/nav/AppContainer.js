@@ -8,34 +8,36 @@ import React, { useCallback, useEffect, useMemo, useRef } from 'react';
 import LessonHScreen from '../pages/lesson/LessonHScreen';
 import LessonDScreen from '../pages/lesson/LessonDScreen';
 
-const MainTab = createStackNavigator();
-function MainTabScreen(navigation) {
+const MainStack = createStackNavigator();
+function MainStackComponent(navigation) {
   return (
-    <MainTab.Navigator>
-      <MainTab.Screen name="MainH" component={MainHScreen} options={{title: 'Main'}} />
-      <MainTab.Screen name="MainD" component={MainDScreen} options={({ route }) => ({ title: route.name })} />
-    </MainTab.Navigator>
+    <MainStack.Navigator>
+      <MainStack.Screen name="MainH" component={MainHScreen} options={{title: 'Main'}} />
+      <MainStack.Screen name="MainD" component={MainDScreen} options={({ route }) => ({ title: route.name })} />
+    </MainStack.Navigator>
   );
 } 
 
-const LessonTab = createStackNavigator();
-function LessonTabScreen() {
+const SecondStack = createStackNavigator();
+function SecondStackComponent() {
   return (
-    <LessonTab.Navigator>
-      <LessonTab.Screen name="LessonH" component={LessonHScreen} options={{title: 'Lesson'}} />
-      <LessonTab.Screen name="LessonD" component={LessonDScreen} options={({ route }) => ({ title: route.name })} />
-    </LessonTab.Navigator>
+    <SecondStack.Navigator>
+      <SecondStack.Screen name="LessonH" component={LessonHScreen} options={{title: 'Lesson'}} />
+      <SecondStack.Screen name="LessonD" component={LessonDScreen} options={({ route }) => ({ title: route.name })} />
+      <SecondStack.Screen name="MainH" component={MainHScreen} options={{title: 'Main'}} />
+      <SecondStack.Screen name="MainD" component={MainDScreen} options={({ route }) => ({ title: route.name })} />
+    </SecondStack.Navigator>
   );
 }
 
-const Tab = createBottomTabNavigator();
+const BottomTab = createBottomTabNavigator();
 const AppContainer = ({mode: appMode}) => {
   return (
     <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen name="Main" component={MainTabScreen} options={{ headerShown: false }} />
-        <Tab.Screen name="Lesson" component={LessonTabScreen} options={{ headerShown: false }} />
-      </Tab.Navigator>
+      <BottomTab.Navigator>
+        <BottomTab.Screen name="Main" component={MainStackComponent} options={{ headerShown: false }} />
+        <BottomTab.Screen name="Lesson" component={SecondStackComponent} options={{ headerShown: false }} />
+      </BottomTab.Navigator>
     </NavigationContainer>
   );
 };
