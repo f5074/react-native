@@ -1,4 +1,5 @@
 ## Setting (Windows)
+
 ```
 1. [cmd] react-native-cli
 npm install -g react-native-cli
@@ -14,8 +15,8 @@ C:\Users\{User}\AppData\Local\Android\Sdk\platform-tools
 adb
 ```
 
-
 ## Init React-Native
+
 ```
 1. [cmd] init
 npx react-native init reactnative
@@ -32,25 +33,32 @@ C:\Users\{User}\AppData\Local\Android\Sdk\licenses
 ## React-Native 기능
 
 ### 1.절대경로 설정
+
 ```bash
 npm install babel-plugin-module-resolver -D
 ```
 
 ### 2.Root Import
+
 ```bash
 npm install babel-plugin-root-import --save-dev
 ```
+
 ### 3. navigation
+
 ```bash
-npm install @react-navigation/native 
+npm install @react-navigation/native
 npm install react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view
 ```
+
 ### 4. Bottom Navigation
+
 ```bash
 npm install @react-navigation/stack
 ```
 
 ### 5. prettier 설정
+
 ```json
 
 // before
@@ -82,7 +90,7 @@ npm install @react-navigation/stack
     "comments": "#fdc1d5"
   },
   "launch": {
-    
+
 
     "configurations": [],
     "compounds": []
@@ -102,9 +110,14 @@ npm install @react-navigation/stack
 }
 ```
 
+### 6. dotenv
 
+```bash
+npm i react-native-dotenv
+```
 
 ## References
+
 ```
 절대경로설정: https://csc0705.tistory.com/63
 Navigation: https://velog.io/@yhe228/React-NavigationTab-navigation

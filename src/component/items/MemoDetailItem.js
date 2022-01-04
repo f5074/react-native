@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, useEffect} from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -16,28 +16,24 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-export default class MainDItem extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      title: props.title,
-      children: props.children,
-    };
-  }
+const MemoDetailItem = props => {
+  useEffect(() => {
+    // console.log('MemoDetailItem');
+  }, []);
 
-  render() {
-    return (
-      <View style={styles.sectionContainer}>
-        <Text style={[styles.sectionTitle, {color: Colors.black}]}>
-          {this.state.title}
-        </Text>
-        <Text style={[styles.sectionDescription, {color: Colors.black}]}>
-          {this.state.children}
-        </Text>
-      </View>
-    );
-  }
-}
+  return (
+    <View style={styles.sectionContainer}>
+      <Text style={[styles.sectionTitle, {color: Colors.black}]}>
+        {props?.title}
+      </Text>
+      <Text style={[styles.sectionDescription, {color: Colors.black}]}>
+        {props?.data}
+      </Text>
+    </View>
+  );
+};
+
+export default MemoDetailItem;
 
 const styles = StyleSheet.create({
   sectionContainer: {

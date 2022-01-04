@@ -2,12 +2,11 @@ import {Button, Text, View, AppState, BackHandler, Image} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import MainDScreen from '../pages/main/MainDScreen';
-import MainHScreen from '../pages/main/MainHScreen';
 import React, {useCallback, useEffect, useMemo, useRef} from 'react';
-import LessonHScreen from '../pages/lesson/LessonHScreen';
-import LessonDScreen from '../pages/lesson/LessonDScreen';
 import Images from '../../Images';
+import HomeScreen from '../pages/home';
+import MemoScreen from '../pages/memo';
+import MemoDetailScreen from '../pages/memo/detail';
 
 const bottomRoutes = [
   {
@@ -95,14 +94,9 @@ function MainStackComponent(navigation) {
   return (
     <MainStack.Navigator screenOptions={StackOptions}>
       <MainStack.Screen
-        name="MainH"
-        component={MainHScreen}
+        name="MainHome"
+        component={HomeScreen}
         options={{title: 'Main'}}
-      />
-      <MainStack.Screen
-        name="MainD"
-        component={MainDScreen}
-        options={({route}) => ({title: route.name})}
       />
     </MainStack.Navigator>
   );
@@ -113,23 +107,13 @@ function SecondStackComponent() {
   return (
     <SecondStack.Navigator screenOptions={StackOptions}>
       <SecondStack.Screen
-        name="LessonH"
-        component={LessonHScreen}
-        options={{title: 'Lesson'}}
+        name="MemoHome"
+        component={MemoScreen}
+        options={{title: 'Memo'}}
       />
       <SecondStack.Screen
-        name="LessonD"
-        component={LessonDScreen}
-        options={({route}) => ({title: route.name})}
-      />
-      <SecondStack.Screen
-        name="MainH"
-        component={MainHScreen}
-        options={{title: 'Main'}}
-      />
-      <SecondStack.Screen
-        name="MainD"
-        component={MainDScreen}
+        name="MemoDetail"
+        component={MemoDetailScreen}
         options={({route}) => ({title: route.name})}
       />
     </SecondStack.Navigator>
