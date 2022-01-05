@@ -1,4 +1,4 @@
-package com.reactnative;
+package io.github.oseongryu.app;
 
 import com.facebook.react.ReactActivity;
 
