@@ -110,10 +110,25 @@ npm install @react-navigation/stack
 }
 ```
 
-### 6. dotenv
+### 6. react-native-dotenv
 
 ```bash
 npm i react-native-dotenv
+```
+
+### 7. axios
+
+```bash
+npm i axios
+```
+
+### 8. redux
+
+```bash
+npm i react-redux
+npm i redux
+npm i redux-thunk
+npm i @types/react-redux
 ```
 
 ## References

@@ -10,16 +10,26 @@ import {
   Button,
 } from 'react-native';
 import {Dimensions} from 'react-native';
-// import dotenv from 'dotenv';
 
 import {FlatList} from 'react-native-gesture-handler';
+import {getReviews, postReview} from '../../common/service/ReviewService';
+import MemoDetailItem from '../../component/items/MemoDetailItem';
 export const SCREEN_HEIGHT = Dimensions.get('screen').height;
 
 const HomeScreen = ({navigation, route}) => {
-  const [list, setList] = useState([1]);
+  const [list, setList] = useState();
 
+  useEffect(async () => {
+    // await postReview({
+    //   title: 'title2',
+    //   name: 'name2',
+    // });
+    const result = await getReviews();
+    console.log(result.content);
+    setList(result.content);
+  }, []);
   const endEvent = () => {
-    console.log('t', list?.length);
+    // console.log('t', list?.length);
     // var result = list;
     // result.push(list?.length);
     // setList(result);
@@ -35,7 +45,7 @@ const HomeScreen = ({navigation, route}) => {
         renderItem={({item, index}) => {
           return (
             <View>
-              <Text>{item}</Text>
+              <MemoDetailItem title={item.title} key={index} data={item.name} />
             </View>
           );
         }}
@@ -53,8 +63,8 @@ const HomeScreen = ({navigation, route}) => {
             </View>
           );
         }}
-        keyExtractor={(item, index) => index.toString()}
-        onEndReached={() => endEvent()}
+        // keyExtractor={(item, index) => index.toString()}
+        // onEndReached={() => endEvent()}
         onEndReachedThreshold={0.1}
       />
     </View>
