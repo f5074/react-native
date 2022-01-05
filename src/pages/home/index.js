@@ -12,6 +12,7 @@ import {
 import {Dimensions} from 'react-native';
 
 import {FlatList} from 'react-native-gesture-handler';
+import {getAPIHost} from '../../common/Api';
 import {getReviews, postReview} from '../../common/service/ReviewService';
 import MemoDetailItem from '../../component/items/MemoDetailItem';
 export const SCREEN_HEIGHT = Dimensions.get('screen').height;
@@ -25,7 +26,7 @@ const HomeScreen = ({navigation, route}) => {
     //   name: 'name2',
     // });
     const result = await getReviews();
-    console.log(result.content);
+    // console.log(result.content);
     setList(result.content);
   }, []);
   const endEvent = () => {
@@ -37,6 +38,8 @@ const HomeScreen = ({navigation, route}) => {
 
   return (
     <View style={{flex: 1}}>
+      <Text>{getAPIHost()}</Text>
+      <Text>{getAPIHost()}</Text>
       <FlatList
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{paddingHorizontal: 15}}
