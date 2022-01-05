@@ -1,5 +1,4 @@
-import React, {Component, useEffect} from 'react';
-import {movies} from 'common/Constants';
+import React, {Component, useEffect, useState} from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -17,16 +16,24 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import {getReviews} from '../../../common/service/ReviewService';
 import MemoDetailItem from '../../../component/items/MemoDetailItem';
 
 const MemoDetailScreen = ({navigation, route}) => {
+  const [list, setList] = useState();
+
+  useEffect(async () => {
+    const result = await getReviews();
+    setList(result.content);
+  }, []);
+
   return (
     <SafeAreaView style={{backgroundColor: Colors.light}}>
       <StatusBar barStyle={'light-content'} />
       <ScrollView contentInsetAdjustmentBehavior="automatic">
         <View style={{backgroundColor: Colors.white}}>
-          {movies?.map((item, idx) => (
-            <MemoDetailItem title={item.title} key={idx} data={item.view} />
+          {list?.map((item, idx) => (
+            <MemoDetailItem title={item.title} key={idx} data={item.name} />
           ))}
         </View>
       </ScrollView>
