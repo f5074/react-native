@@ -131,6 +131,12 @@ npm i redux-thunk
 npm i @types/react-redux
 ```
 
+### 9. components(WebView)
+
+```bash
+npm i react-native-webview
+```
+
 ## References
 
 ```

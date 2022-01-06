@@ -7,6 +7,9 @@ import Images from '../../Images';
 import HomeScreen from '../pages/home';
 import MemoScreen from '../pages/memo';
 import MemoDetailScreen from '../pages/memo/detail';
+import PaymentScreen from '../pages/payment';
+import PaymentInicisScreen from '../pages/payment/inicis';
+import PaymentWebViewScreen from '../component/scene/PaymentWebView';
 
 const bottomRoutes = [
   {
@@ -24,9 +27,9 @@ const bottomRoutes = [
     activeMenu: Images.menu_contents_on,
   },
   {
-    name: 'Third',
-    label: '캘린더',
-    component: SecondStackComponent,
+    name: 'Payment',
+    label: '결제',
+    component: PaymentStackComponent,
     inactiveMenu: Images.menu_category_off,
     activeMenu: Images.menu_category_on,
   },
@@ -120,11 +123,62 @@ function SecondStackComponent() {
   );
 }
 
-const BottomTab = createBottomTabNavigator();
-const AppContainer = ({mode: appMode}) => {
+const PaymentStack = createStackNavigator();
+function PaymentStackComponent() {
   return (
-    <NavigationContainer>
-      <BottomTab.Navigator>
+    <PaymentStack.Navigator screenOptions={StackOptions}>
+      <PaymentStack.Screen
+        name="PaymentHome"
+        component={PaymentScreen}
+        options={{title: 'Payment'}}
+      />
+      <PaymentStack.Screen
+        name="PaymentInicis"
+        component={PaymentInicisScreen}
+        options={({route}) => ({title: route.name})}
+      />
+      <PaymentStack.Screen
+        name={'PaymentWebView'}
+        component={PaymentWebViewScreen}
+        options={{title: 'PaymentWebView'}}
+      />
+    </PaymentStack.Navigator>
+  );
+}
+
+const BottomTab = createBottomTabNavigator();
+
+const AppContainer = ({mode: appMode}) => {
+  const nav = useRef();
+  const screens = {
+    Intro: '/Welcome',
+    Payment: '/Payment',
+  };
+  const linking = {
+    prefixes: ['oseongryu://', 'http://localhost:3000'],
+    config: {screens},
+  };
+
+  return (
+    <NavigationContainer
+      ref={nav}
+      documentTitle={{enabled: false}}
+      linking={{linking}}>
+      <BottomTab.Navigator
+        mode="modal"
+        screenOptions={{
+          ...StackOptions,
+          headerShown: false,
+          headerBackImage: () => (
+            <View
+              style={{
+                zIndex: 999,
+                width: 24,
+                height: 24,
+                marginLeft: 20,
+              }}></View>
+          ),
+        }}>
         {bottomRoutes.map(route => (
           <BottomTab.Screen
             key={route.name}
