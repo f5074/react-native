@@ -14,4 +14,6 @@ export default {
   menu_notice_off: require('./asset/menu/menu_notice_off.png'),
   menu_notice_on: require('./asset/menu/menu_notice_on.png'),
   header_back: require('./asset/common/header_back.png'),
+  header_back_dk: require('./asset/common/header_back_dk.png'),
+  btn_close_black: require('./asset/common/btn_close_black.png'),
 };

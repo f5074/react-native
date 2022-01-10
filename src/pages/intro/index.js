@@ -12,7 +12,7 @@ import {
 import {Dimensions} from 'react-native';
 export const SCREEN_HEIGHT = Dimensions.get('screen').height;
 
-const PaymentScreen = ({navigation, route}) => {
+const IntroScreen = ({navigation, route}) => {
   useEffect(async () => {
     // console.log('tt');
   }, []);
@@ -25,10 +25,15 @@ const PaymentScreen = ({navigation, route}) => {
         justifyContent: 'center',
       }}>
       <Button
-        title="PaymentInicis"
-        onPress={() => navigation.navigate('PaymentInicis')}
+        title="PaymentHome"
+        onPress={() => navigation.navigate('PaymentHome')}
       />
+      <Button
+        title="MainTabHome"
+        onPress={() => navigation.replace('MainTabHome')}
+      />
+      {/* <Button title="테스트" /> */}
     </View>
   );
 };
-export default PaymentScreen;
+export default IntroScreen;

@@ -10,6 +10,7 @@ import MemoDetailScreen from '../pages/memo/detail';
 import PaymentScreen from '../pages/payment';
 import PaymentInicisScreen from '../pages/payment/inicis';
 import PaymentWebViewScreen from '../component/scene/PaymentWebView';
+import IntroScreen from '../pages/intro';
 
 const bottomRoutes = [
   {
@@ -27,9 +28,9 @@ const bottomRoutes = [
     activeMenu: Images.menu_contents_on,
   },
   {
-    name: 'Payment',
-    label: '결제',
-    component: PaymentStackComponent,
+    name: 'Third',
+    label: '캘린더',
+    component: SecondStackComponent,
     inactiveMenu: Images.menu_category_off,
     activeMenu: Images.menu_category_on,
   },
@@ -92,27 +93,29 @@ const StackOptions = {
   ),
 };
 
-const MainStack = createStackNavigator();
 function MainStackComponent(navigation) {
+  const MainStack = createStackNavigator();
+
   return (
-    <MainStack.Navigator screenOptions={StackOptions}>
+    <MainStack.Navigator>
       <MainStack.Screen
         name="MainHome"
         component={HomeScreen}
-        options={{title: 'Main'}}
+        options={({route}) => ({title: route.name, headerShown: false})}
       />
     </MainStack.Navigator>
   );
 }
 
-const SecondStack = createStackNavigator();
 function SecondStackComponent() {
+  const SecondStack = createStackNavigator();
+
   return (
-    <SecondStack.Navigator screenOptions={StackOptions}>
+    <SecondStack.Navigator>
       <SecondStack.Screen
         name="MemoHome"
         component={MemoScreen}
-        options={{title: 'Memo'}}
+        options={({route}) => ({title: route.name, headerShown: false})}
       />
       <SecondStack.Screen
         name="MemoDetail"
@@ -123,32 +126,85 @@ function SecondStackComponent() {
   );
 }
 
-const PaymentStack = createStackNavigator();
-function PaymentStackComponent() {
+const MainTabNav = ({navigation}) => {
+  const MainTab = createBottomTabNavigator();
   return (
-    <PaymentStack.Navigator screenOptions={StackOptions}>
-      <PaymentStack.Screen
-        name="PaymentHome"
+    <MainTab.Navigator
+      lazy={false}
+      tabBarOptions={{
+        labelStyle: {
+          color: '#000',
+        },
+        backBehavior: 'order',
+        keyboardHidesTabBar: true,
+      }}>
+      {bottomRoutes.map(route => (
+        <MainTab.Screen
+          key={route.name}
+          name={route.label}
+          component={route.component}
+          options={{
+            headerShown: false,
+            unmountOnBlur: true,
+            tabBarIcon: ({focused}) => {
+              return (
+                <Image
+                  source={focused ? route.activeMenu : route.inactiveMenu}
+                  style={{width: 20, height: 20}}
+                />
+              );
+            },
+          }}
+        />
+      ))}
+    </MainTab.Navigator>
+  );
+};
+
+const PaymentStackNav = () => {
+  const Stack = useMemo(() => createStackNavigator(), []);
+  return (
+    <Stack.Navigator screenOptions={StackOptions}>
+      <Stack.Screen
+        name={'Payment'}
         component={PaymentScreen}
-        options={{title: 'Payment'}}
+        // options={({route}) => ({title: route.name})}
+        options={{
+          title: 'Payment',
+          headerBackImage: () => (
+            <View
+              style={{
+                zIndex: 999,
+                width: 24,
+                height: 24,
+                marginLeft: Platform.OS === 'ios' ? 20 : 10,
+              }}>
+              <Image
+                source={Images.btn_close_black}
+                resizeMode={'contain'}
+                style={{width: 24, height: 24}}
+                fadeDuration={0}
+              />
+            </View>
+          ),
+        }}
       />
-      <PaymentStack.Screen
+      <Stack.Screen
         name="PaymentInicis"
         component={PaymentInicisScreen}
         options={({route}) => ({title: route.name})}
       />
-      <PaymentStack.Screen
+      <Stack.Screen
         name={'PaymentWebView'}
         component={PaymentWebViewScreen}
-        options={{title: 'PaymentWebView'}}
+        options={({route}) => ({title: route.name})}
       />
-    </PaymentStack.Navigator>
+    </Stack.Navigator>
   );
-}
-
-const BottomTab = createBottomTabNavigator();
+};
 
 const AppContainer = ({mode: appMode}) => {
+  const AppStructStack = useMemo(() => createStackNavigator(), []);
   const nav = useRef();
   const screens = {
     Intro: '/Welcome',
@@ -163,9 +219,18 @@ const AppContainer = ({mode: appMode}) => {
     <NavigationContainer
       ref={nav}
       documentTitle={{enabled: false}}
-      linking={{linking}}>
-      <BottomTab.Navigator
-        mode="modal"
+      linking={linking}
+      // theme={{
+      //   // ...DefaultTheme,
+      //   colors: {
+      //     // ...DefaultTheme.colors,
+      //     header: 'transparent',
+      //     background: '#fff',
+      //   },
+      // }}
+    >
+      <AppStructStack.Navigator
+        // mode="modal"
         screenOptions={{
           ...StackOptions,
           headerShown: false,
@@ -175,31 +240,83 @@ const AppContainer = ({mode: appMode}) => {
                 zIndex: 999,
                 width: 24,
                 height: 24,
-                marginLeft: 20,
-              }}></View>
+                marginLeft: Platform.OS === 'ios' ? 20 : 10,
+              }}>
+              <Image
+                source={Images.btn_close_black}
+                resizeMode={'contain'}
+                style={{width: 24, height: 24}}
+                fadeDuration={0}
+              />
+            </View>
           ),
         }}>
-        {bottomRoutes.map(route => (
-          <BottomTab.Screen
-            key={route.name}
-            name={route.label}
-            component={route.component}
-            options={{
-              headerShown: false,
-              unmountOnBlur: true,
-              tabBarIcon: ({focused}) => {
-                return (
-                  <Image
-                    source={focused ? route.activeMenu : route.inactiveMenu}
-                    style={{width: 20, height: 20}}
-                  />
-                );
-              },
-            }}
-          />
-        ))}
-      </BottomTab.Navigator>
+        <AppStructStack.Screen
+          name="IntroHome"
+          component={IntroScreen}
+          options={({route}) => ({
+            title: route.name,
+          })}
+        />
+        <AppStructStack.Screen
+          name={'MainTabHome'}
+          component={MainTabNav}
+          options={({route}) => ({
+            title: route.name,
+          })}
+        />
+        <AppStructStack.Screen
+          name="PaymentHome"
+          component={PaymentStackNav}
+          options={({route}) => ({
+            headerShown: false,
+            title: route.name,
+            // cardOverlayEnabled: true,
+            // ...TransitionPresets.ModalPresentationIOS,
+          })}
+        />
+      </AppStructStack.Navigator>
     </NavigationContainer>
+    // <NavigationContainer
+    //   ref={nav}
+    //   documentTitle={{enabled: false}}
+    //   linking={{linking}}>
+    //   <BottomTab.Navigator
+    //     mode="modal"
+    //     screenOptions={{
+    //       ...StackOptions,
+    //       headerShown: false,
+    //       headerBackImage: () => (
+    //         <View
+    //           style={{
+    //             zIndex: 999,
+    //             width: 24,
+    //             height: 24,
+    //             marginLeft: 20,
+    //           }}></View>
+    //       ),
+    //     }}>
+    //     {bottomRoutes.map(route => (
+    //       <BottomTab.Screen
+    //         key={route.name}
+    //         name={route.label}
+    //         component={route.component}
+    //         options={{
+    //           headerShown: false,
+    //           unmountOnBlur: true,
+    //           tabBarIcon: ({focused}) => {
+    //             return (
+    //               <Image
+    //                 source={focused ? route.activeMenu : route.inactiveMenu}
+    //                 style={{width: 20, height: 20}}
+    //               />
+    //             );
+    //           },
+    //         }}
+    //       />
+    //     ))}
+    //   </BottomTab.Navigator>
+    // </NavigationContainer>
     // <NavigationContainer>
     //   <BottomTab.Navigator>
     //     <BottomTab.Screen
