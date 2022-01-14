@@ -131,10 +131,17 @@ npm i redux-thunk
 npm i @types/react-redux
 ```
 
-### 9. components(WebView)
+### 9. react-native-webview(component)
 
 ```bash
 npm i react-native-webview
+```
+
+### 10. iconv-lite, buffer (encode)
+
+```bash
+npm i iconv-lite
+npm i buffer
 ```
 
 ## References

@@ -17,6 +17,8 @@
     "@react-navigation/stack": "^6.0.7",
     "@types/react-redux": "^7.1.21",
     "axios": "^0.24.0",
+    "buffer": "^6.0.3",
+    "iconv-lite": "^0.6.3",
     "react": "17.0.1",
     "react-native": "0.64.2",
     "react-native-dotenv": "^3.3.1",

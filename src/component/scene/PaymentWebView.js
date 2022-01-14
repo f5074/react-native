@@ -20,6 +20,7 @@ import {open3rdPartyApp} from '../../common/CommonFunc';
 import PaymentUrl from '../../common/PaymentUrl';
 
 const PaymentWebViewScreen = ({navigation, route}) => {
+  var iconv = require('iconv-lite');
   useEffect(async () => {
     console.log(route.params.url);
   }, []);
@@ -33,7 +34,7 @@ const PaymentWebViewScreen = ({navigation, route}) => {
     P_INI_PAYMENT: 'CARD',
     P_MID: 'INIpayTest',
     P_OID: 'test_oid_123456',
-    P_GOODS: 'happy payment덜',
+    P_GOODS: '한글 테스트',
     P_AMT: '1000',
     P_UNAME: 'tester',
   };
@@ -43,7 +44,9 @@ const PaymentWebViewScreen = ({navigation, route}) => {
   for (key in postData) {
     urlEncodedDataPairs.push(
       // encodeURIComponent(key) + '=' + encodeURIComponent(postData[key]),
-      key + '=' + postData[key],
+      key +
+        '=' +
+        escape(iconv.encode(postData[key], 'EUC-KR').toString('binary')),
     );
   }
   const WEBVIEW_SOURCE_HTML = `
