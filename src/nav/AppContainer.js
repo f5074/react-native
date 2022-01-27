@@ -130,14 +130,15 @@ const MainTabNav = ({navigation}) => {
   const MainTab = createBottomTabNavigator();
   return (
     <MainTab.Navigator
-      lazy={false}
-      tabBarOptions={{
-        labelStyle: {
-          color: '#000',
-        },
-        backBehavior: 'order',
-        keyboardHidesTabBar: true,
-      }}>
+      // lazy={false}
+      // tabBarOptions={{
+      //   labelStyle: {
+      //     color: '#000',
+      //   },
+      //   backBehavior: 'order',
+      //   keyboardHidesTabBar: true,
+      // }}
+      >
       {bottomRoutes.map(route => (
         <MainTab.Screen
           key={route.name}
