@@ -30,6 +30,11 @@ SDK tools에 구글 라이센스 추가
 C:\Users\{User}\AppData\Local\Android\Sdk\licenses
 ```
 
+## run
+```
+npm install --save --legacy-peer-deps
+```
+
 ## React-Native 기능
 
 ### 1.절대경로 설정
