@@ -22,10 +22,14 @@ import MemoDetailItem from '../../../component/items/MemoDetailItem';
 const MemoDetailScreen = ({navigation, route}) => {
   const [list, setList] = useState();
 
-  useEffect(async () => {
+  useEffect(() => {
+    loadData();
+  }, []);
+
+  async function loadData() {
     const result = await getReviews();
     setList(result.content);
-  }, []);
+  }
 
   return (
     <SafeAreaView style={{backgroundColor: Colors.light}}>

@@ -20,15 +20,20 @@ export const SCREEN_HEIGHT = Dimensions.get('screen').height;
 const HomeScreen = ({navigation, route}) => {
   const [list, setList] = useState();
 
-  useEffect(async () => {
+  useEffect(() => {
     // await postReview({
     //   title: 'title2',
     //   name: 'name2',
     // });
+    loadData();
+  }, []);
+
+  async function loadData() {
     const result = await getReviews();
     // console.log(result.content);
     setList(result.content);
-  }, []);
+  }
+
   const endEvent = () => {
     // console.log('t', list?.length);
     // var result = list;

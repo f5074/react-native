@@ -13,9 +13,13 @@ import {Dimensions} from 'react-native';
 export const SCREEN_HEIGHT = Dimensions.get('screen').height;
 
 const IntroScreen = ({navigation, route}) => {
-  useEffect(async () => {
-    // console.log('tt');
+  useEffect(() => {
+    loadData();
   }, []);
+
+  async function loadData() {
+    // console.log('tt');
+  }
 
   return (
     <View
