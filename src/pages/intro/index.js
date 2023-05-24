@@ -18,7 +18,7 @@ const IntroScreen = ({navigation, route}) => {
   }, []);
 
   async function loadData() {
-    // console.log('tt');
+    navigation.replace('MainTabHome');
   }
 
   return (
@@ -28,14 +28,14 @@ const IntroScreen = ({navigation, route}) => {
         alignItems: 'center',
         justifyContent: 'center',
       }}>
-      <Button
+      {/* <Button
         title="PaymentHome"
         onPress={() => navigation.navigate('PaymentHome')}
       />
       <Button
         title="MainTabHome"
         onPress={() => navigation.replace('MainTabHome')}
-      />
+      /> */}
       {/* <Button title="테스트" /> */}
     </View>
   );

@@ -29,9 +29,9 @@ const HomeScreen = ({navigation, route}) => {
   }, []);
 
   async function loadData() {
-    const result = await getReviews();
+    // const result = await getReviews();
     // console.log(result.content);
-    setList(result.content);
+    // setList(result.content);
   }
 
   const endEvent = () => {
@@ -43,8 +43,8 @@ const HomeScreen = ({navigation, route}) => {
 
   return (
     <View style={{flex: 1}}>
-      <Text>{getAPIHost()}</Text>
-      <Text>{getAPIHost()}</Text>
+      {/* <Text>{getAPIHost()}</Text> */}
+      {/* <Text>{getAPIHost()}</Text> */}
       <FlatList
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{paddingHorizontal: 15}}
