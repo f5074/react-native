@@ -8,17 +8,13 @@ import {
   useColorScheme,
   View,
   Button,
-  PixelRatio,
-  Platform,
-  Dimensions,
 } from 'react-native';
+import {Dimensions} from 'react-native';
 
 import {FlatList} from 'react-native-gesture-handler';
 import {getAPIHost} from '../../common/Api';
 import {getReviews, postReview} from '../../common/service/ReviewService';
 import MemoDetailItem from '../../component/items/MemoDetailItem';
-import YouTube from 'react-native-youtube';
-
 export const SCREEN_HEIGHT = Dimensions.get('screen').height;
 
 const HomeScreen = ({navigation, route}) => {
@@ -39,9 +35,10 @@ const HomeScreen = ({navigation, route}) => {
   }
 
   const endEvent = () => {
+    navigation.navigate('YoutubePage');
     // console.log('t', list?.length);
     // var result = list;
-    // result.push(list?.length);
+    // result.push(list?.length);r
     // setList(result);
   };
 
@@ -69,57 +66,17 @@ const HomeScreen = ({navigation, route}) => {
                 alignItems: 'center',
                 justifyContent: 'center',
               }}>
-              {/* <Text style={[{marginTop: (SCREEN_HEIGHT - 350) / 2}]}>
-                데이터가 존재하지 않습니다.
-              </Text> */}
-              <YouTube
-                // You must have an API Key for the player to load in Android
-                apiKey="YOUR_API_KEY"
-                // Un-comment one of videoId / videoIds / playlist.
-                // You can also edit these props while Hot-Loading in development mode to see how
-                // it affects the loaded native module
-                videoId="qBrsul8O764"
-                videoIds={['qBrsul8O764', 'wFT40_jYF5o', 'pJPbXLrksE8']}
-                // playlistId="PLF797E961509B4EB5"
-                controls={1}
-                style={[
-                  { height: PixelRatio.roundToNearestPixel(200 / (9 / 20)) },
-                  styles.player,
-                ]}
-              />
+              <Text style={[{marginTop: (SCREEN_HEIGHT - 350) / 2}]}>
+                Youtube 인기 Shorts 모음
+              </Text>
             </View>
           );
         }}
         // keyExtractor={(item, index) => index.toString()}
-        // onEndReached={() => endEvent()}
+        onEndReached={() => endEvent()}
         onEndReachedThreshold={0.1}
       />
     </View>
   );
 };
 export default HomeScreen;
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: 'white',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  buttonGroup: {
-    flexDirection: 'row',
-    alignSelf: 'center',
-    paddingBottom: 5,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-  player: {
-    alignSelf: 'stretch',
-    marginVertical: 10,
-  },
-});

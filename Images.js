@@ -1,4 +1,7 @@
 export default {
+  header_back: require('./public/img/header_back.png'),
+  header_back_dk: require('./public/img/header_back_dk.png'),
+  btn_close_black: require('./public/img/btn_close_black.png'),
   menu_category_off: require('./public/img/menu_category.png'),
   menu_category_on: require('./public/img/menu_category.png'),
   menu_lesson_off: require('./public/img/menu_lesson.png'),
@@ -13,7 +16,6 @@ export default {
   menu_mypage_on: require('./public/img/menu_mypage.png'),
   menu_notice_off: require('./public/img/menu_notice.png'),
   menu_notice_on: require('./public/img/menu_notice.png'),
-  header_back: require('./public/img/header_back.png'),
-  header_back_dk: require('./public/img/header_back_dk.png'),
-  btn_close_black: require('./public/img/btn_close_black.png'),
+  menu_youtube_off: require('./public/img/menu_youtube.png'),
+  menu_youtube_on: require('./public/img/menu_youtube.png'),
 };

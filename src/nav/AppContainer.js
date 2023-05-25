@@ -4,13 +4,16 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import React, {useCallback, useEffect, useMemo, useRef} from 'react';
 import Images from '../../Images';
-import HomeScreen from '../pages/home';
+import HomeScreen from '../pages/home/index';
 import MemoScreen from '../pages/memo';
+import YoutubeScreen from '../pages/youtube/index';
 import MemoDetailScreen from '../pages/memo/detail';
 import PaymentScreen from '../pages/payment';
 import PaymentInicisScreen from '../pages/payment/inicis';
 import PaymentWebViewScreen from '../component/scene/PaymentWebView';
 import IntroScreen from '../pages/intro';
+import {Platform} from 'react-native';
+
 
 const bottomRoutes = [
   {
@@ -22,25 +25,25 @@ const bottomRoutes = [
   },
   {
     name: 'Second',
-    label: '메모',
-    component: SecondStackComponent,
-    inactiveMenu: Images.menu_contents_off,
-    activeMenu: Images.menu_contents_on,
+    label: '멈춰',
+    component: YoutubeStackComponent,
+    inactiveMenu: Images.menu_youtube_off,
+    activeMenu: Images.menu_youtube_on,
   },
-  {
-    name: 'Third',
-    label: '캘린더',
-    component: SecondStackComponent,
-    inactiveMenu: Images.menu_category_off,
-    activeMenu: Images.menu_category_on,
-  },
-  {
-    name: 'Fourth',
-    label: '마이페이지',
-    component: SecondStackComponent,
-    inactiveMenu: Images.menu_mypage_off,
-    activeMenu: Images.menu_mypage_on,
-  },
+  // {
+  //   name: 'Third',
+  //   label: '캘린더',
+  //   component: SecondStackComponent,
+  //   inactiveMenu: Images.menu_category_off,
+  //   activeMenu: Images.menu_category_on,
+  // },
+  // {
+  //   name: 'Fourth',
+  //   label: '마이페이지',
+  //   component: SecondStackComponent,
+  //   inactiveMenu: Images.menu_mypage_off,
+  //   activeMenu: Images.menu_mypage_on,
+  // },
 ];
 
 const StackOptions = {
@@ -126,19 +129,38 @@ function SecondStackComponent() {
   );
 }
 
+function YoutubeStackComponent() {
+  const SecondStack = createStackNavigator();
+
+  return (
+    <SecondStack.Navigator>
+      <SecondStack.Screen
+        name="MemoHome"
+        component={YoutubeScreen}
+        options={({route}) => ({title: route.name, headerShown: false})}
+      />
+      <SecondStack.Screen
+        name="MemoDetail"
+        component={MemoDetailScreen}
+        options={({route}) => ({title: route.name})}
+      />
+    </SecondStack.Navigator>
+  );
+}
+
 const MainTabNav = ({navigation}) => {
   const MainTab = createBottomTabNavigator();
   return (
     <MainTab.Navigator
-      // lazy={false}
-      // tabBarOptions={{
-      //   labelStyle: {
-      //     color: '#000',
-      //   },
-      //   backBehavior: 'order',
-      //   keyboardHidesTabBar: true,
-      // }}
-      >
+    // lazy={false}
+    // tabBarOptions={{
+    //   labelStyle: {
+    //     color: '#000',
+    //   },
+    //   backBehavior: 'order',
+    //   keyboardHidesTabBar: true,
+    // }}
+    >
       {bottomRoutes.map(route => (
         <MainTab.Screen
           key={route.name}
@@ -269,6 +291,16 @@ const AppContainer = ({mode: appMode}) => {
         <AppStructStack.Screen
           name="PaymentHome"
           component={PaymentStackNav}
+          options={({route}) => ({
+            headerShown: false,
+            title: route.name,
+            // cardOverlayEnabled: true,
+            // ...TransitionPresets.ModalPresentationIOS,
+          })}
+        />
+        <AppStructStack.Screen
+          name="YoutubePage"
+          component={YoutubeScreen}
           options={({route}) => ({
             headerShown: false,
             title: route.name,
