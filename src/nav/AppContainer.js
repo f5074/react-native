@@ -16,7 +16,6 @@ import YoutubeIndex from '../pages/shorts/youtube-index';
 import YoutubeIframeIndex from '../pages/shorts/youtube-iframe-index';
 import {Platform} from 'react-native';
 
-
 const bottomRoutes = [
   {
     name: 'Main',

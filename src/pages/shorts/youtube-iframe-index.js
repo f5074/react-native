@@ -1,4 +1,10 @@
-import React, {Component, useEffect, useCallback, useState, useRef} from 'react';
+import React, {
+  Component,
+  useEffect,
+  useCallback,
+  useState,
+  useRef,
+} from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -13,12 +19,17 @@ import {
   Dimensions,
   Alert,
 } from 'react-native';
-import YoutubePlayer from 'react-native-youtube-iframe';
+import YoutubePlayer, {YoutubeIframeRef} from 'react-native-youtube-iframe';
 
 export const SCREEN_HEIGHT = Dimensions.get('screen').height;
 
 const YoutubeIframeIndex = ({navigation, route}) => {
+  const _youTubeRef = useRef();
+
   const [playing, setPlaying] = useState(false);
+  const [playerWidth, setPlayerWidth] = useState(
+    Dimensions.get('window').width,
+  );
   const [videoList, setVideoList] = useState([
     'w14U3qExxNw',
     'uHWsPBjiSqU',
@@ -32,29 +43,46 @@ const YoutubeIframeIndex = ({navigation, route}) => {
     'pJPbXLrksE8',
   ]);
 
-
   const onStateChange = useCallback(state => {
     if (state === 'ended') {
       setPlaying(false);
-      Alert.alert('video has finished playing!');
+      // console.log('test');
+      console.log(_youTubeRef.current);
+      // Alert.alert('video has finished playing!');
     }
   }, []);
 
   const togglePlaying = useCallback(() => {
     setPlaying(prev => !prev);
+    // console.log('test');
+    console.log(_youTubeRef.current);
   }, []);
 
   return (
-    <View>
+    <View
+      style={{
+        // borderWidth: 1,
+        height: 400,
+        width: 240,
+        overflow: 'hidden',
+        alignSelf: 'center',
+      }}
+      className="my-5">
       <YoutubePlayer
-        style={[
-          {
-            height: PixelRatio.roundToNearestPixel(playerWidth / (9 / 13)),
-          },
-          styles.player,
-        ]}
+        ref={_youTubeRef}
+        width={Dimensions.get('window').width}
+        // height={700}
+        height={PixelRatio.roundToNearestPixel(playerWidth / (9 / 8))}
+        // style={[
+        //   {
+        //     height: PixelRatio.roundToNearestPixel(playerWidth / (9 / 13)),
+        //   },
+        //   styles.player,
+        // ]}
         play={playing}
-        videoId={'w14U3qExxNw'}
+        playList={videoList}
+        // webViewStyle={{width: 400, height: 100}}
+        webViewStyle={{marginLeft: -100, marginTop: 100}}
         // videoIds={videoList}
         onChangeState={onStateChange}
       />
