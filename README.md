@@ -31,6 +31,7 @@ C:\Users\{User}\AppData\Local\Android\Sdk\licenses
 ```
 
 ## run
+
 ```
 npm install --save --legacy-peer-deps
 ```
@@ -159,6 +160,19 @@ less, css
 
 ```bash
 npm i iamport-react-native
+```
+
+### 13. react-native-youtube
+
+```bash
+npm i react-native-youtube
+```
+
+### 14. react-native-youtube
+
+```bash
+npm i react-native-webview
+npm i react-native-youtube-iframe --legacy-peer-deps
 ```
 
 ## References

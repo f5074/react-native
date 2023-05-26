@@ -6,12 +6,14 @@ import React, {useCallback, useEffect, useMemo, useRef} from 'react';
 import Images from '../../Images';
 import HomeScreen from '../pages/home/index';
 import MemoScreen from '../pages/memo';
-import YoutubeScreen from '../pages/youtube/index';
 import MemoDetailScreen from '../pages/memo/detail';
 import PaymentScreen from '../pages/payment';
 import PaymentInicisScreen from '../pages/payment/inicis';
 import PaymentWebViewScreen from '../component/scene/PaymentWebView';
 import IntroScreen from '../pages/intro';
+
+import YoutubeIndex from '../pages/shorts/youtube-index';
+import YoutubeIframeIndex from '../pages/shorts/youtube-iframe-index';
 import {Platform} from 'react-native';
 
 
@@ -27,6 +29,13 @@ const bottomRoutes = [
     name: 'Second',
     label: '멈춰',
     component: YoutubeStackComponent,
+    inactiveMenu: Images.menu_youtube_off,
+    activeMenu: Images.menu_youtube_on,
+  },
+  {
+    name: 'Third',
+    label: 'View',
+    component: YoutubeIframeStackComponent,
     inactiveMenu: Images.menu_youtube_off,
     activeMenu: Images.menu_youtube_on,
   },
@@ -136,13 +145,22 @@ function YoutubeStackComponent() {
     <SecondStack.Navigator>
       <SecondStack.Screen
         name="MemoHome"
-        component={YoutubeScreen}
+        component={YoutubeIndex}
         options={({route}) => ({title: route.name, headerShown: false})}
       />
+    </SecondStack.Navigator>
+  );
+}
+
+function YoutubeIframeStackComponent() {
+  const SecondStack = createStackNavigator();
+
+  return (
+    <SecondStack.Navigator>
       <SecondStack.Screen
-        name="MemoDetail"
-        component={MemoDetailScreen}
-        options={({route}) => ({title: route.name})}
+        name="MemoHome"
+        component={YoutubeIframeIndex}
+        options={({route}) => ({title: route.name, headerShown: false})}
       />
     </SecondStack.Navigator>
   );
@@ -300,7 +318,7 @@ const AppContainer = ({mode: appMode}) => {
         />
         <AppStructStack.Screen
           name="YoutubePage"
-          component={YoutubeScreen}
+          component={YoutubeIndex}
           options={({route}) => ({
             headerShown: false,
             title: route.name,

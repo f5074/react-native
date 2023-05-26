@@ -17,13 +17,22 @@ import {FlatList} from 'react-native-gesture-handler';
 import {getAPIHost} from '../../common/Api';
 import {getReviews, postReview} from '../../common/service/ReviewService';
 import MemoDetailItem from '../../component/items/MemoDetailItem';
-import YouTube, { YouTubeStandaloneIOS, YouTubeStandaloneAndroid } from 'react-native-youtube';
+import YouTube, {
+  YouTubeStandaloneIOS,
+  YouTubeStandaloneAndroid,
+} from 'react-native-youtube';
 
 export const SCREEN_HEIGHT = Dimensions.get('screen').height;
 
-const YoutubeScreen = ({navigation, route}) => {
+const YoutubeIndex = ({navigation, route}) => {
   const [videoList, setVideoList] = useState([
-    // 'xuCn8ux2gbs',
+    'w14U3qExxNw',
+    'uHWsPBjiSqU',
+    'GiPFIO2AAVg',
+    '1wF9ZMgVdJc',
+    'wF3z8EP6LS4',
+    'fMjZGr7BnNQ',
+    '7bfr7VFfTFk',
     'qBrsul8O764',
     'wFT40_jYF5o',
     'pJPbXLrksE8',
@@ -33,12 +42,10 @@ const YoutubeScreen = ({navigation, route}) => {
   const [quality, setQuality] = useState(null);
   const [error, setError] = useState(null);
   const [isPlaying, setIsPlaying] = useState(true);
-  const [isLooping, setIsLooping] = useState(true);
+  const [isLooping, setIsLooping] = useState(false);
   const [fullscreen, setFullscreen] = useState(false);
   const [rel, setRel] = useState(false);
   const [videosIndex, setVideosIndex] = useState(0);
-
-
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
   const [playerWidth, setPlayerWidth] = useState(
@@ -69,12 +76,10 @@ const YoutubeScreen = ({navigation, route}) => {
   };
 
   return (
-    <View style={{ flex: 1, paddingHorizontal: 15 }}>
+    <View style={{flex: 1, paddingHorizontal: 15}}>
       <ScrollView>
         <View
-          style={[
-            {marginTop: (SCREEN_HEIGHT - (SCREEN_HEIGHT - 100)) / 2},
-          ]}>
+          style={[{marginTop: (SCREEN_HEIGHT - (SCREEN_HEIGHT - 100)) / 2}]}>
           <YouTube
             ref={_youTubeRef}
             // You must have an API Key for the player to load in Android
@@ -94,9 +99,7 @@ const YoutubeScreen = ({navigation, route}) => {
             // style={styles.youtube}
             style={[
               {
-                height: PixelRatio.roundToNearestPixel(
-                  playerWidth / (9 / 10),
-                ),
+                height: PixelRatio.roundToNearestPixel(playerWidth / (9 / 13)),
               },
               styles.player,
             ]}
@@ -123,7 +126,7 @@ const YoutubeScreen = ({navigation, route}) => {
         </View>
 
         {/* Playing / Looping */}
-        <View style={styles.buttonGroup}>
+        {/* <View style={styles.buttonGroup}>
           <Button
             title={status == 'playing' ? 'Pause' : 'Play'}
             color={status == 'playing' ? 'red' : undefined}
@@ -131,22 +134,22 @@ const YoutubeScreen = ({navigation, route}) => {
               setIsPlaying(!isPlaying);
             }}
           />
-          {/* <Text> </Text>
+          <Text> </Text>
           <Button
             title={isLooping ? 'Looping' : 'Not Looping'}
             color={isLooping ? 'green' : undefined}
             onPress={() => {
               setIsLooping(!isLooping);
             }}
-          /> */}
-        </View>
+          />
+        </View> */}
 
         {/* Previous / Next video */}
         <View style={styles.buttonGroup}>
           <Button
-            title="Previous Video"
+            title="이전"
             onPress={() => {
-              const changeIndex = videosIndex - 1
+              const changeIndex = videosIndex - 1;
               if (_youTubeRef.current && videosIndex >= 1) {
                 // console.log(_youTubeRef.current)
                 _youTubeRef.current.playVideoAt(changeIndex);
@@ -157,11 +160,23 @@ const YoutubeScreen = ({navigation, route}) => {
             }}
           />
           <Text> </Text>
+          <Text> </Text>
+          <Text> </Text>
           <Button
-            title="Next Video"
+            title={status == 'playing' ? 'Pause' : 'Play'}
+            color={status == 'playing' ? 'red' : undefined}
+            onPress={() => {
+              setIsPlaying(!isPlaying);
+            }}
+          />
+          <Text> </Text>
+          <Text> </Text>
+          <Text> </Text>
+          <Button
+            title="다음"
             onPress={() => {
               if (_youTubeRef.current) {
-                const changeIndex = videosIndex + 1
+                const changeIndex = videosIndex + 1;
                 _youTubeRef.current.playVideoAt(changeIndex);
                 if (videoList.length > changeIndex) {
                   setVideosIndex(changeIndex);
@@ -426,7 +441,7 @@ const YoutubeScreen = ({navigation, route}) => {
     </View>
   );
 };
-export default YoutubeScreen;
+export default YoutubeIndex;
 
 const styles = StyleSheet.create({
   playerContainer: {

@@ -1,0 +1,34 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    // "workbench.colorTheme": "Material Theme Darker",
+    // "editor.formatOnSave": true,
+    // "prettier.jsxSingleQuote": true,
+    // "prettier.singleQuote": true,
+    // "javascript.preferences.quoteStyle": "single",
+    // "typescript.preferences.quoteStyle": "single",
+    // "editor.tokenColorCustomizations": {
+    //   "comments": "#fdc1d5"
+    // },
+    // "launch": {
+    //   "configurations": [],
+    //   "compounds": []
+    // },
+    // "editor.defaultFormatter": "esbenp.prettier-vscode",
+    // "code-runner.runInTerminal": true,
+    // "[json]": {
+    //   "editor.quickSuggestions": {
+    //     "strings": true
+    //   },
+    //   "editor.suggest.insertMode": "replace",
+    //   "gitlens.codeLens.scopes": ["document"]
+    // },
+    // "code-runner.executorMap": {
+    //   "cpp": "cd $dir && clang++ -std=c++17 $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt"
+    // }
+  }
+}
