@@ -15,6 +15,7 @@ import {FlatList} from 'react-native-gesture-handler';
 import {getAPIHost} from '../../common/Api';
 import {getReviews, postReview} from '../../common/service/ReviewService';
 import MemoDetailItem from '../../component/items/MemoDetailItem';
+
 export const SCREEN_HEIGHT = Dimensions.get('screen').height;
 
 const HomeScreen = ({navigation, route}) => {
@@ -37,7 +38,7 @@ const HomeScreen = ({navigation, route}) => {
   const endEvent = () => {
     navigation.navigate('YoutubePage');
     // console.log('t', list?.length);
-    // var result = list;
+    // var result = list;r
     // result.push(list?.length);r
     // setList(result);
   };

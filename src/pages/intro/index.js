@@ -11,10 +11,12 @@ import {
 } from 'react-native';
 import {Dimensions} from 'react-native';
 export const SCREEN_HEIGHT = Dimensions.get('screen').height;
+import {showUpdate} from '../../common/AppUpdater';
 
 const IntroScreen = ({navigation, route}) => {
   useEffect(() => {
     loadData();
+    showUpdate(0);
   }, []);
 
   async function loadData() {

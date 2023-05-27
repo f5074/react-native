@@ -15,7 +15,7 @@ export const getAPIHost = () => {
 };
 
 export let restApi = axios.create({
-  baseURL: getAPIHost() + 'api',
+  baseURL: getAPIHost(),
   headers: {
     platform: Platform.OS.toLowerCase(),
   },
