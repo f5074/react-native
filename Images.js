@@ -1,4 +1,7 @@
 export default {
+  btn_left: require('./public/img/btn_left.png'),
+  btn_right: require('./public/img/btn_right.png'),
+
   header_back: require('./public/img/header_back.png'),
   header_back_dk: require('./public/img/header_back_dk.png'),
   btn_close_black: require('./public/img/btn_close_black.png'),

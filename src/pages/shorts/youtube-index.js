@@ -22,7 +22,7 @@ import YouTube, {
   YouTubeStandaloneAndroid,
 } from 'react-native-youtube';
 
-export const SCREEN_HEIGHT = Dimensions.get('screen').height;
+const {width: SCREEN_WIDTH, height: SCREEN_HEIGHT} = Dimensions.get('screen');
 
 const YoutubeIndex = ({navigation, route}) => {
   const [videoList, setVideoList] = useState([
@@ -99,7 +99,8 @@ const YoutubeIndex = ({navigation, route}) => {
             // style={styles.youtube}
             style={[
               {
-                height: PixelRatio.roundToNearestPixel(playerWidth / (9 / 13)),
+                // height: PixelRatio.roundToNearestPixel(playerWidth / (9 / 13)),
+                height: SCREEN_HEIGHT - 300,
               },
               styles.player,
             ]}
