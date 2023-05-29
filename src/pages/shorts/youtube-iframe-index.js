@@ -20,6 +20,7 @@ import {
   TouchableOpacity,
   Image,
   Alert,
+  RefreshControl,
 } from 'react-native';
 import YoutubePlayer, {YoutubeIframeRef} from 'react-native-youtube-iframe';
 import Images from '../../../Images';
@@ -28,6 +29,23 @@ const {width: SCREEN_WIDTH, height: SCREEN_HEIGHT} = Dimensions.get('screen');
 // export const SCREEN_HEIGHT = Dimensions.get('screen').height;
 
 const YoutubeIframeIndex = ({navigation, route}) => {
+  const [refreshing, setRefreshing] = useState(false);
+
+  const onRefresh = useCallback(async () => {
+    setRefreshing(true);
+    console.log('refreshing');
+    // dispatch(setPayCard(selectedId));
+    var changeVideoId = videoList.filter((data, index) => {
+      // console.log(currentIndex + cnt);
+      if (0 == index) {
+        return data;
+      }
+    });
+    if (changeVideoId != undefined) setVideoId(changeVideoId[0]);
+    setPlaying(true);
+    setRefreshing(false);
+  }, [videoId]);
+
   const _youTubeRef = useRef();
 
   const [playing, setPlaying] = useState(true);
@@ -37,7 +55,7 @@ const YoutubeIframeIndex = ({navigation, route}) => {
   const [status, setStatus] = useState(null);
 
   const [videoList, setVideoList] = useState([]);
-  const [videoId, setVideoId] = useState('');
+  const [videoId, setVideoId] = useState('pJPbXLrksE8');
 
   const onStateChange = useCallback(
     state => {
@@ -59,14 +77,15 @@ const YoutubeIframeIndex = ({navigation, route}) => {
   }, []);
 
   useEffect(() => {
-    loadData();
+    initData();
     console.log('loadData');
   }, []);
 
-  async function loadData() {
+  async function initData() {
     const list = ['pJPbXLrksE8', 'wFT40_jYF5o', 'qBrsul8O764'];
     setVideoList(list);
     setVideoId('pJPbXLrksE8');
+    setPlaying(true);
   }
 
   function changeVideoList(val, cnt) {
@@ -111,7 +130,10 @@ const YoutubeIframeIndex = ({navigation, route}) => {
 
   return (
     <View style={{flex: 1, paddingHorizontal: 15}}>
-      <ScrollView>
+      <ScrollView
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        }>
         <View
           style={[{marginTop: (SCREEN_HEIGHT - (SCREEN_HEIGHT - 100)) / 2}]}>
           <View>
@@ -135,10 +157,9 @@ const YoutubeIframeIndex = ({navigation, route}) => {
               // playList={videoList}
               webViewProps={{
                 injectedJavaScript: `
-            var element = document.getElementsByClassName('container')[0];
-            element.style.position = 'unset';
-            true;
-          `,
+                  var element = document.getElementsByClassName('container')[0];
+                  element.style.position = 'unset';
+                  true;`,
               }}
               // // webViewStyle={{width: 400, height: 100}}
               // webViewStyle={
@@ -221,60 +242,10 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     paddingBottom: 20,
   },
-  buttonLeft: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#3b8eea',
-    borderWidth: 0.5,
-    // borderColor: '#fff',
-    height: 40,
-    width: 50,
-    borderRadius: 10,
-    margin: 5,
-  },
-  buttonImageIconStyle: {
-    padding: 10,
-    margin: 5,
-    height: 25,
-    width: 25,
-    resizeMode: 'stretch',
-  },
-
   container: {
     flex: 1,
     margin: 10,
     marginTop: 30,
     padding: 30,
-  },
-  buttonGPlusStyle: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#dc4e41',
-    borderWidth: 0.5,
-    borderColor: '#fff',
-    height: 40,
-    borderRadius: 5,
-    margin: 5,
-  },
-  buttonFacebookStyle: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#485a96',
-    borderWidth: 0.5,
-    borderColor: '#fff',
-    height: 40,
-    borderRadius: 5,
-    margin: 5,
-  },
-
-  buttonTextStyle: {
-    color: '#fff',
-    marginBottom: 4,
-    marginLeft: 10,
-  },
-  buttonIconSeparatorStyle: {
-    backgroundColor: '#fff',
-    width: 1,
-    height: 40,
   },
 });
