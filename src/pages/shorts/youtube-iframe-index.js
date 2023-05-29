@@ -127,9 +127,11 @@ const YoutubeIframeIndex = ({navigation, route}) => {
               //   },
               //   styles.player,
               // ]}
+              // mute={true}
               style={[styles.player]}
               play={playing}
               videoId={videoId}
+              initialPlayerParams={{rel: 0, start: 3}}
               // playList={videoList}
               webViewProps={{
                 injectedJavaScript: `
