@@ -1,0 +1,42 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "workbench.startupEditor": "none",
+    "editor.minimap.enabled": false,
+    "editor.formatOnSave": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
+    "prettier.jsxSingleQuote": true,
+    "prettier.singleQuote": true,
+    "javascript.preferences.quoteStyle": "single",
+    "typescript.preferences.quoteStyle": "single",
+    "launch": {
+      "configurations": [],
+      "compounds": []
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "code-runner.runInTerminal": true,
+    "[json]": {
+      "editor.quickSuggestions": {
+        "strings": true
+      },
+      "editor.suggest.insertMode": "replace",
+      "gitlens.codeLens.scopes": [
+        "document"
+      ]
+    },
+    "code-runner.executorMap": {
+      "cpp": "cd $dir && clang++ -std=c++17 $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt"
+    },
+    // "editor.tokenColorCustomizations": {
+    //   "comments": "#fdc1d5"
+    // },
+    "window.title": "${dirty}${rootName}",
+    "workbench.colorTheme": "Default Dark+",
+    "workbench.colorCustomizations": {}
+  }
+}

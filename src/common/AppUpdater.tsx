@@ -27,52 +27,50 @@ export const showUpdate = async index => {
     };
     // console.log(params);
     try {
-      await fetch('https://oseongryu.github.io/test/video.json')
-        .then(response => response.json())
-        .then(json => console.log(json));
+      // await fetch('https://oseongryu.github.io/test/video.json')
+      //   .then(response => response.json())
+      //   .then(json => console.log(json));
 
       console.log('start');
-      const {status, data} = await restApi.get('video.json', params);
+      const {status, data} = await restApi.get('version.json', params);
       console.log(data);
       //   console.log('end');
+      if (data?.aosRequiredUpdate) {
+        Alert.alert(
+          '업데이트',
+          '현재버전 ' + DeviceInfo.getVersion() + '는 업데이트가 필요합니다.',
+          [
+            {
+              text: 'Update',
+              onPress: () => {
+                // 만약 어플이 설치되어 있으면 true, 없으면 false
+                const supported = Linking.canOpenURL(GOOGLE_PLAY_STORE_LINK);
+                if (supported) {
+                  try {
+                    // 설치되어 있으면
+                    BackHandler.exitApp();
+                    Linking.openURL(GOOGLE_PLAY_STORE_LINK);
+                  } catch (e) {
+                    console.log(e);
+                  }
+                } else {
+                  try {
+                    // 앱이 없으면
+                    BackHandler.exitApp();
+                    Linking.openURL(GOOGLE_PLAY_STORE_WEB_LINK);
+                  } catch (e) {
+                    console.log(e);
+                  }
+                }
+              },
+            },
+          ],
+        );
+      } else {
+      }
     } catch (e) {
       console.log(e);
     }
-    console.log('err');
-
-    // if (data?.aosRequiredUpdate) {
-    //   Alert.alert(
-    //     '업데이트',
-    //     '현재버전 ' + DeviceInfo.getVersion() + '는 업데이트가 필요합니다.',
-    //     [
-    //       {
-    //         text: 'Update',
-    //         onPress: () => {
-    //           // 만약 어플이 설치되어 있으면 true, 없으면 false
-    //           const supported = Linking.canOpenURL(GOOGLE_PLAY_STORE_LINK);
-    //           if (supported) {
-    //             try {
-    //               // 설치되어 있으면
-    //               BackHandler.exitApp();
-    //               Linking.openURL(GOOGLE_PLAY_STORE_LINK);
-    //             } catch (e) {
-    //               console.log(e);
-    //             }
-    //           } else {
-    //             try {
-    //               // 앱이 없으면
-    //               BackHandler.exitApp();
-    //               Linking.openURL(GOOGLE_PLAY_STORE_WEB_LINK);
-    //             } catch (e) {
-    //               console.log(e);
-    //             }
-    //           }
-    //         },
-    //       },
-    //     ],
-    //   );
-    // } else {
-    // }
   }
 };
 

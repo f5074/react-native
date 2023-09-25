@@ -17,7 +17,8 @@ const IntroScreen = ({navigation, route}) => {
   useEffect(() => {
     loadData();
     showUpdate(0);
-  }, []);
+    navigation?.replace('MainTabHome');
+  }, [navigation]);
 
   async function loadData() {
     // navigation.replace('MainTabHome');
@@ -31,13 +32,9 @@ const IntroScreen = ({navigation, route}) => {
         justifyContent: 'center',
       }}>
       {/* <Button
-        title="PaymentHome"
-        onPress={() => navigation.navigate('PaymentHome')}
-      /> */}
-      <Button
         title="MainTabHome"
         onPress={() => navigation.replace('MainTabHome')}
-      />
+      /> */}
       {/* <Button title="테스트" /> */}
     </View>
   );

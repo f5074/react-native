@@ -32,19 +32,24 @@ const YoutubeIframeIndex = ({navigation, route}) => {
   const [refreshing, setRefreshing] = useState(false);
 
   const onRefresh = useCallback(async () => {
-    setRefreshing(true);
-    console.log('refreshing');
-    // dispatch(setPayCard(selectedId));
-    var changeVideoId = videoList.filter((data, index) => {
-      // console.log(currentIndex + cnt);
-      if (0 == index) {
-        return data;
-      }
-    });
-    if (changeVideoId != undefined) setVideoId(changeVideoId[0]);
-    setPlaying(true);
-    setRefreshing(false);
-  }, [videoId]);
+    try {
+      setRefreshing(true);
+      console.log('refreshing');
+      // dispatch(setPayCard(selectedId));
+      console.log(videoList);
+      var changeVideoId = videoList.filter((data, index) => {
+        // console.log(currentIndex + cnt);
+        if (0 == index) {
+          return data;
+        }
+      });
+      if (changeVideoId != undefined) setVideoId(changeVideoId[0]);
+      setPlaying(true);
+      setRefreshing(false);
+    } catch (e) {
+      console.log('error', e);
+    }
+  }, [refreshing]);
 
   const _youTubeRef = useRef();
 
@@ -55,7 +60,7 @@ const YoutubeIframeIndex = ({navigation, route}) => {
   const [status, setStatus] = useState(null);
 
   const [videoList, setVideoList] = useState([]);
-  const [videoId, setVideoId] = useState('pJPbXLrksE8');
+  const [videoId, setVideoId] = useState('w14U3qExxNw');
 
   const onStateChange = useCallback(
     state => {
@@ -82,9 +87,20 @@ const YoutubeIframeIndex = ({navigation, route}) => {
   }, []);
 
   async function initData() {
-    const list = ['pJPbXLrksE8', 'wFT40_jYF5o', 'qBrsul8O764'];
+    const list = [
+      'w14U3qExxNw',
+      'uHWsPBjiSqU',
+      'GiPFIO2AAVg',
+      '1wF9ZMgVdJc',
+      'wF3z8EP6LS4',
+      'fMjZGr7BnNQ',
+      '7bfr7VFfTFk',
+      'qBrsul8O764',
+      'wFT40_jYF5o',
+      'pJPbXLrksE8',
+    ];
     setVideoList(list);
-    setVideoId('pJPbXLrksE8');
+    setVideoId('w14U3qExxNw');
     setPlaying(true);
   }
 
