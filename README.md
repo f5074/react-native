@@ -30,6 +30,12 @@ SDK tools에 구글 라이센스 추가
 C:\Users\{User}\AppData\Local\Android\Sdk\licenses
 ```
 
+## run
+
+```
+npm install --save --legacy-peer-deps
+```
+
 ## React-Native 기능
 
 ### 1.절대경로 설정
@@ -156,9 +162,40 @@ less, css
 npm i iamport-react-native
 ```
 
+### 13. react-native-youtube
+
+```bash
+npm i react-native-youtube
+```
+
+### 14. react-native-youtube
+
+```bash
+npm i react-native-webview
+npm i react-native-youtube-iframe --legacy-peer-deps
+```
+
+### 15. babel-plugin-root-import
+
+```bash
+npm install babel-plugin-root-import --save-dev
+```
+
 ## References
 
 ```
 절대경로설정: https://csc0705.tistory.com/63
 Navigation: https://velog.io/@yhe228/React-NavigationTab-navigation
+```
+
+### react-native start가 metro server를 켜는 명령이기 때문에 metro server가 꺼져있는 상태에서 수행
+
+react-native start --reset-cache
+
+```
+If you are sure the module exists, try these steps:
+1.  Clear watchman watches: watchman watch-del-all
+2.  Delete node_modules and run yarn install
+3.  Reset Metro's cache: yarn start --reset-cache
+4.  Remove the cache: rm -rf /tmp/metro-\*
 ```

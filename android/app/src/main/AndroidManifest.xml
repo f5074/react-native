@@ -11,6 +11,7 @@
       android:allowBackup="false"
       android:theme="@style/AppTheme">
       <activity
+        android:exported="true"
         android:name=".MainActivity"
         android:label="@string/app_name"
         android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
@@ -22,4 +23,15 @@
         </intent-filter>
       </activity>
     </application>
+    <!-- https://stackoverflow.com/questions/63909770/why-youtube-player-api-does-not-work-on-android-11 -->
+    <!-- <queries>
+      <intent>
+        <action android:name="com.google.android.youtube.api.service.START" />
+      </intent>
+      <package android:name="com.google.android.youtube" />
+      <intent>
+        <action android:name="android.intent.action.VIEW" />
+        <data  android:scheme="https" android:host="youtube.com" />
+    </intent>
+    </queries> -->
 </manifest>
