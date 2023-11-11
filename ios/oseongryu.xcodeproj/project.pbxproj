@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* oseongryuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* oseongryuTests.m */; };
-		13709A27FE7BD2FCC1032199 /* libPods-oseongryu-oseongryuTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 68CA7B1E6A5424AAA8F80249 /* libPods-oseongryu-oseongryuTests.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		423BD763B5BCAAA6C341200E /* libPods-oseongryu.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A5869F52C6A6F6508F23F544 /* libPods-oseongryu.a */; };
+		3FC250BCCCBF7D456F974F9A /* Pods_oseongryu_oseongryuTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3589C26306E854667B14DCE8 /* Pods_oseongryu_oseongryuTests.framework */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		F412B690D23CC4704FA3D760 /* Pods_oseongryu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF1D87DDC4FE92C9CDB7C8B7 /* Pods_oseongryu.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,16 +38,16 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = oseongryu/main.m; sourceTree = "<group>"; };
 		18E55FC368BF71482B203530 /* Pods-reactnative.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reactnative.release.xcconfig"; path = "Target Support Files/Pods-reactnative/Pods-reactnative.release.xcconfig"; sourceTree = "<group>"; };
 		295EBB692895B71D94362275 /* Pods-oseongryu-oseongryuTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-oseongryu-oseongryuTests.release.xcconfig"; path = "Target Support Files/Pods-oseongryu-oseongryuTests/Pods-oseongryu-oseongryuTests.release.xcconfig"; sourceTree = "<group>"; };
+		3589C26306E854667B14DCE8 /* Pods_oseongryu_oseongryuTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_oseongryu_oseongryuTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E415343F259E1C1FB7D0D8F /* Pods-reactnative-oseongryuTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reactnative-oseongryuTests.debug.xcconfig"; path = "Target Support Files/Pods-reactnative-oseongryuTests/Pods-reactnative-oseongryuTests.debug.xcconfig"; sourceTree = "<group>"; };
-		68CA7B1E6A5424AAA8F80249 /* libPods-oseongryu-oseongryuTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-oseongryu-oseongryuTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AECB29AFDB64E0560BDDD0D /* Pods-oseongryu-oseongryuTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-oseongryu-oseongryuTests.debug.xcconfig"; path = "Target Support Files/Pods-oseongryu-oseongryuTests/Pods-oseongryu-oseongryuTests.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = oseongryu/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		83F0E107A056AC07F731D175 /* Pods-reactnative-oseongryuTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reactnative-oseongryuTests.release.xcconfig"; path = "Target Support Files/Pods-reactnative-oseongryuTests/Pods-reactnative-oseongryuTests.release.xcconfig"; sourceTree = "<group>"; };
 		90F53980D94EFB1888C697F3 /* Pods-oseongryu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-oseongryu.debug.xcconfig"; path = "Target Support Files/Pods-oseongryu/Pods-oseongryu.debug.xcconfig"; sourceTree = "<group>"; };
 		A12D2CB232D8DCC5BF479482 /* Pods-oseongryu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-oseongryu.release.xcconfig"; path = "Target Support Files/Pods-oseongryu/Pods-oseongryu.release.xcconfig"; sourceTree = "<group>"; };
-		A5869F52C6A6F6508F23F544 /* libPods-oseongryu.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-oseongryu.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB8ADAD589B298980E33786B /* Pods-reactnative.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reactnative.debug.xcconfig"; path = "Target Support Files/Pods-reactnative/Pods-reactnative.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		FF1D87DDC4FE92C9CDB7C8B7 /* Pods_oseongryu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_oseongryu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13709A27FE7BD2FCC1032199 /* libPods-oseongryu-oseongryuTests.a in Frameworks */,
+				3FC250BCCCBF7D456F974F9A /* Pods_oseongryu_oseongryuTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,7 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				423BD763B5BCAAA6C341200E /* libPods-oseongryu.a in Frameworks */,
+				F412B690D23CC4704FA3D760 /* Pods_oseongryu.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,8 +104,8 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				A5869F52C6A6F6508F23F544 /* libPods-oseongryu.a */,
-				68CA7B1E6A5424AAA8F80249 /* libPods-oseongryu-oseongryuTests.a */,
+				FF1D87DDC4FE92C9CDB7C8B7 /* Pods_oseongryu.framework */,
+				3589C26306E854667B14DCE8 /* Pods_oseongryu_oseongryuTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -408,7 +408,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = reactnativeTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -432,7 +432,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = oseongryuTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -459,6 +459,7 @@
 				DEVELOPMENT_TEAM = FJAA9562ZK;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = oseongryu/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -485,6 +486,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FJAA9562ZK;
 				INFOPLIST_FILE = oseongryu/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
